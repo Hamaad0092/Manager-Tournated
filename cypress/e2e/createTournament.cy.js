@@ -2,9 +2,9 @@ require('cypress-xpath');
 import 'cypress-file-upload';
 let count = 1 //******** Give tournament number ******/
 const name=`Testing tournament ${count}` 
-describe('Create Tournament complete flow', () => {
+describe('Manager Panel', () => {
 
-  it('Login with correct credentials', () => {
+  it('Login & create new Tournament successfully', () => {
 
     cy.visit('https://manager.spadasoft.com/dashboard/all-tournaments')
     cy.get('input[name="email"]').type('superadmin@gmail.com')
@@ -50,7 +50,7 @@ cy.get('input[name=noOfCourts]').clear().type('1')
 
 cy.contains('Go to Next').click()
 
-
+//*******************************************************************************************/
 // *************************** first page is saved now next Dates & Location page***********//
 
 cy.get('input[name="timeZone"]')
@@ -152,10 +152,11 @@ cy.get('.MuiOutlinedInput-input').type("2")
 // cy.contains("Submit").click()
 
 })
-
+ //************************************************************************* */
 //////////**********************Catogery Setting**************************** */
+//************************************************************************* */
 
-it("category Setting",()=>{
+it("Login & Catogery Settings edit and save value Successfully.",()=>{
   cy.visit('https://manager.spadasoft.com/dashboard/all-tournaments')
   cy.get('input[name="email"]').type('superadmin@gmail.com')
   cy.get('input[name="password"]').type('password')
@@ -204,10 +205,12 @@ it("category Setting",()=>{
          cy.contains("Save").click()
 })
 
+//*********************************************************************************/
 // ******************************   Stage Setting ********************************//
+//********************************************************************************/
 
 
-it.only("Stage Setting",()=>{
+it("Login & edit Stage Setting Successfully.",()=>{
   cy.visit('https://manager.spadasoft.com/dashboard/all-tournaments')
   cy.get('input[name="email"]').type('superadmin@gmail.com')
   cy.get('input[name="password"]').type('password')
@@ -225,10 +228,6 @@ it.only("Stage Setting",()=>{
       cy.contains('Court Settings').click({ force: true });
     }
   });
-  
-  
-
-
   cy.wait(6000)
   cy.get('input[type="checkbox"]').eq(0).click({ force: true });
   cy.contains('Change Settings').click({force:true})
