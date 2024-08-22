@@ -1,4 +1,4 @@
-describe("In", () => {
+describe("In matches Add new group should added values", () => {
 
     beforeEach(() => {
       cy.visit('https://manager.spadasoft.com/');
