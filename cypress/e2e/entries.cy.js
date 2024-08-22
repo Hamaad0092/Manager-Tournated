@@ -42,22 +42,21 @@ cy.get('button[type="button"]').each(($button) => {
        cy.get('li[data-value="Cash"]').click({force:true})
        cy.wait(2000);
 
-// Find all submit buttons and click the first one that contains 'Save' or 'Update'
+
 cy.get('button[type="submit"]').then(($buttons) => {
-  // Iterate over the buttons
+
   $buttons.each((index, button) => {
     const buttonText = Cypress.$(button).text().trim();
 
     if (buttonText.includes('Save') || buttonText.includes('Update')) {
-      // Click the first button that matches the criteria
       cy.wrap(button).click({ force: true });
-      return false; // Exit the .each() loop after clicking
+      return false; 
     }
   });
 });
 
-// Focus on an element and press Escape twice
-cy.wait(2000); // Ensure the page has loaded
+
+cy.wait(2000); 
 cy.focused().type('{esc}{esc}');
 
 cy.focused().type('{esc}{esc}');
