@@ -182,7 +182,7 @@ it("Login & Catogery Settings edit and save value Successfully.",()=>{
 //********************************************************************************/
 
 
-it.only("Login & edit Stage Setting Successfully.",()=>{
+it("Login & edit Stage Setting Successfully.",()=>{
   cy.visit('https://manager.spadasoft.com/dashboard/all-tournaments')
   cy.get('input[name="email"]').type('superadmin@gmail.com')
   cy.get('input[name="password"]').type('password')
@@ -201,17 +201,8 @@ it.only("Login & edit Stage Setting Successfully.",()=>{
   cy.get('input[name="name"]').type("Test Tournament create")
   cy.get('select[name="status"]').select(1)
 
-  cy.get('button[type="submit"]').last().click()
+  // cy.get('button[type="submit"]').last().click()
 
-    cy.get('input[name="generalLimit"]').type("500")
-    cy.get('input[name="individualMetricLimit"]').click({force:true})
-    cy.get('input[name="allowParticipantsToAddResults"]').click({force:true})
-
-    cy.get('select[name="attachmentsStatus"]').then($dropdown => {
-      const thirdOptionValue = $dropdown.find('option').eq(1).val();
-      cy.wrap($dropdown).select(thirdOptionValue);})
-
-      cy.contains('Save').click({force:true})
 })
 
 
